@@ -1,26 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import PersistentDrawerLeft from './templates/drawer';
+import GroupPage from './pages/groupPage';
+import StudySettingPage from './pages/studySettingPage';
+import StudyPage from './pages/studyPage';
+import MenuPage from './pages/menuPage';
+import InputPage from './pages/inputPage';
+import EditPage from './pages/editPage';
+import SavePage from './pages/savePage';
+import LoadPage from './pages/loadPage';
+import { checkInit } from './repository/setting';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+type PageProps = {
+};
+
+type PageState = {
+  isShow: boolean,
+};
+
+class App extends React.PureComponent<PageProps, PageState> {
+  render() {
+    checkInit();
+
+    return (
+      <Router>
+        <PersistentDrawerLeft />
+        <div className="content-area">
+          <Switch>
+            <Route exact path="/group" component={GroupPage} />
+            <Route path="/group" component={GroupPage} />
+            <Route path="/menu/:groupId" component={MenuPage} />
+            <Route path="/input/:groupId" component={InputPage} />
+            <Route path="/studySetting/:groupId" component={StudySettingPage} />
+            <Route path="/study/:groupId" component={StudyPage} />
+            <Route path="/edit/:groupId" component={EditPage} />
+            <Route path="/save/" component={SavePage} />
+            <Route path="/load/" component={LoadPage} />
+          </Switch>
+          <div className="footer-area" />
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
