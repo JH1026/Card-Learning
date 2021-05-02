@@ -83,11 +83,24 @@ class InputPage extends React.Component<PageProps, PageState> {
     });
   }
 
+  redirectTo(link: string) {
+    this.props.history.push(link);
+  }
+
   render() {
     return (
       <div className="content-width80">
-        <div style={{ marginTop: '125px' }} />
+        <div style={{ marginTop: '100px' }} />
         <div style={{ maxWidth: '750px', margin: 'auto' }}>
+          <div>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => this.redirectTo(`/menu/${this.state.selectGroupId}`)}
+            >
+              Back to Menu
+            </Button>
+          </div>
           <h2>{this.state.groupName}</h2>
           <h2>Input Data</h2>
           <div>

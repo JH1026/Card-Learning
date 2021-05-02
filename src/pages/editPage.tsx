@@ -147,11 +147,27 @@ class EditPage extends React.Component<PageProps, PageState> {
     });
   }
 
+  redirectTo(link: string) {
+    this.props.history.push(link);
+  }
+
   render() {
+    const { params } = this.props.match;
+
     return (
       <div className="content-width80">
         <div style={{ marginTop: '90px' }} />
         <div style={{ maxWidth: '750px', margin: 'auto' }}>
+
+          <div>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => this.redirectTo(`/menu/${params.groupId}`)}
+            >
+              Back to Menu
+            </Button>
+          </div>
           <div
             style={{
               paddingBottom: 4,

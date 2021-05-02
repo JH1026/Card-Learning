@@ -91,6 +91,8 @@ class StudySettingPage extends React.Component<PageProps, PageState> {
   }
 
   render() {
+    const { params } = this.props.match;
+
     const buttonStyle = {
       width: '180px',
       margin: '4px',
@@ -98,8 +100,17 @@ class StudySettingPage extends React.Component<PageProps, PageState> {
 
     return (
       <div className="content-width80">
-        <div style={{ marginTop: '125px' }} />
+        <div style={{ marginTop: '100px' }} />
         <div style={{ maxWidth: '750px', margin: 'auto' }}>
+          <div>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => this.redirectTo(`/menu/${params.groupId}`)}
+            >
+              Back to Menu
+            </Button>
+          </div>
           <h1>{this.state.groupName}</h1>
           <div className="select-mode-area">
             <h2>Number of Cards</h2>
