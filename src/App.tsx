@@ -36,6 +36,7 @@ class App extends React.PureComponent<PageProps, PageState> {
             <Route path="/edit/:groupId" component={EditPage} />
             <Route path="/save/" component={SavePage} />
             <Route path="/load/" component={LoadPage} />
+            <Route component={GroupPage} />
           </Switch>
           <div className="footer-area" />
         </div>
