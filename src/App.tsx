@@ -28,7 +28,7 @@ class App extends React.PureComponent<PageProps, PageState> {
         <div className="content-area">
           <Switch>
             <Route exact path="/" component={GroupPage} />
-            <Route path="/group" component={GroupPage} />
+            <Route path="group" component={GroupPage} />
             <Route path="/menu/:groupId" component={MenuPage} />
             <Route path="/input/:groupId" component={InputPage} />
             <Route path="/studySetting/:groupId" component={StudySettingPage} />
