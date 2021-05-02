@@ -23,7 +23,7 @@ class App extends React.PureComponent<PageProps, PageState> {
     checkInit();
 
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <PersistentDrawerLeft />
         <div className="content-area">
           <Switch>
