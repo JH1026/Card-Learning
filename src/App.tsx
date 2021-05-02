@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, HashRouter } from 'react-router-dom';
 import PersistentDrawerLeft from './templates/drawer';
 import GroupPage from './pages/groupPage';
 import StudySettingPage from './pages/studySettingPage';
@@ -23,7 +23,7 @@ class App extends React.PureComponent<PageProps, PageState> {
     checkInit();
 
     return (
-      <Router>
+      <HashRouter>
         <PersistentDrawerLeft />
         <div className="content-area">
           <Switch>
@@ -39,7 +39,7 @@ class App extends React.PureComponent<PageProps, PageState> {
           </Switch>
           <div className="footer-area" />
         </div>
-      </Router>
+      </HashRouter>
     );
   }
 }
