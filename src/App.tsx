@@ -27,7 +27,7 @@ class App extends React.PureComponent<PageProps, PageState> {
         <PersistentDrawerLeft />
         <div className="content-area">
           <Switch>
-            <Route exact path="/TypeScriptTest/" component={GroupPage} />
+            <Route exact path="/" component={GroupPage} />
             <Route path="/group" component={GroupPage} />
             <Route path="/menu/:groupId" component={MenuPage} />
             <Route path="/input/:groupId" component={InputPage} />
