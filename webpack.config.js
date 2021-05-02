@@ -6,11 +6,11 @@ module.exports = {
     App: ['./src/index.tsx'],
   },
   output: {
-    path: path.resolve(__dirname, 'public/'),
+    path: path.resolve(__dirname, 'docs/'),
     publicPath: '/',
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    contentBase: path.join(__dirname, 'docs'),
     host: '192.168.11.7',
     port: 8080,
     historyApiFallback: true,
