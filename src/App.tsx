@@ -23,7 +23,7 @@ class App extends React.PureComponent<PageProps, PageState> {
     checkInit();
 
     return (
-      <HashRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <PersistentDrawerLeft />
         <div className="content-area">
           <Switch>
@@ -38,7 +38,7 @@ class App extends React.PureComponent<PageProps, PageState> {
             <Route path="/load/" component={LoadPage} />
             <Route component={GroupPage} />
           </Switch>
-          <div className="footer-area"/>
+          <div className="footer-area" />
         </div>
       </HashRouter>
     );
