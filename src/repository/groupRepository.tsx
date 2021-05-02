@@ -30,7 +30,6 @@ export default class GroupStorage extends OperateLocalStorage {
     }
 
     const nextId = this.getNextId(this.keyName);
-    console.log(nextId);
     this.addStore(this.keyName, {
       groupName,
     });
