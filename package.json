@@ -1,7 +1,7 @@
 {
   "name": "card-study",
   "version": "0.1.0",
-  "homepage": "https://juneorg2020.github.io/TypeScriptTest",
+  "homepage": "https://juneorg2020.github.io/TypeScriptTest/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
