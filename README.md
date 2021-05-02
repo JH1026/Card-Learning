@@ -18,8 +18,8 @@ https://juneorg2020.github.io/TypeScriptTest/
 
 ## 使用画面のイメージ
 データ入力 <br>
-![ScreenShot_Diagram (1)](https://user-images.githubusercontent.com/64642177/114655831-f7b43580-9d27-11eb-8258-310be2427e16.png)<br>
+![ScreenShot_Diagram (1)](https://user-images.githubusercontent.com/64642177/116818263-6f49e780-aba5-11eb-90fb-ee9ba32cf94c.png)<br>
 学習 <br>
-![ScreenShot_Diagram (2)](https://user-images.githubusercontent.com/64642177/114655843-fbe05300-9d27-11eb-8404-8a294bda84da.png)<br>
+![ScreenShot_Diagram (2)](https://user-images.githubusercontent.com/64642177/116818266-72dd6e80-aba5-11eb-82c0-957c18343299.png)<br>
 データ編集 <br>
-![ScreenShot_Diagram (3)](https://user-images.githubusercontent.com/64642177/114655859-ff73da00-9d27-11eb-923b-075484a9ac95.png)
+![ScreenShot_Diagram (3)](https://user-images.githubusercontent.com/64642177/116818267-74a73200-aba5-11eb-96b8-90eb74844e72.png)
