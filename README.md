@@ -1,26 +1,27 @@
-# カード学習アプリ
+# Card Study App
 
-## アプリ概要
+## Overview
 
-カード学習アプリです。<br>
-ブラウザ上のストレージにデータを保存するため、↓のURLにアクセスして、すぐに使用できます。<br>
+This is a Card Study App.<br>
+You can use this app immediately, because the data is saved in the storage on the browser.
 入力したカードデータは、JSONで保存、反映が可能です。<br>
+You can saved data that you inputed as JSON.<br>
 <br>
 https://juneorg2020.github.io/TypeScriptTest/ <br>
-※ブラウザのキャッシュをクリアすると保存されているデータが削除される事に注意してください。
+Please note that if you were clear your browser's cache, the data would be deleted.
 
-## 使用技術
+## Techniques
 
-* __フロントエンド__
+* __Frontend__
   * __typescript 4.1.2__
   * __React.js 17.0.2__
   * __material-ui/core 4.11.4__
   * __eslint 7.25.0__
 
-## 使用画面のイメージ
-データ入力 <br>
+## Image
+Input Data Screen<br>
 <img src="https://user-images.githubusercontent.com/64642177/116818263-6f49e780-aba5-11eb-90fb-ee9ba32cf94c.png" width=400><br>
-学習 <br>
+Study Screen<br>
 <img src="https://user-images.githubusercontent.com/64642177/116818266-72dd6e80-aba5-11eb-82c0-957c18343299.png" width=400><br>
-データ編集 <br>
+Edit Data<br>
 <img src="https://user-images.githubusercontent.com/64642177/116818267-74a73200-aba5-11eb-96b8-90eb74844e72.png" width=400>
