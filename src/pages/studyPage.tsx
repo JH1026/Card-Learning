@@ -95,12 +95,21 @@ class StudyPage extends React.Component<PageProps, PageState> {
 
   refreshData() {
     const { params } = this.props.match;
+
+    if (this.props.location.state === undefined) {
+      this.props.history.push(
+        `/studySetting/${params.groupId}`,
+      );
+      return;
+    }
+
     const { countCondition, cardAmount, studyMode } = this.props.location.state;
+
     const allCards = CardStorage.getAllCard(params.groupId);
     const selectedCards = this.selectCardsByMode(allCards, studyMode, countCondition);
 
     if (selectedCards.length === 0) {
-      alert("There are no card in the conditions you select.");
+      alert('There are no card in the conditions you select.');
       this.props.history.push(
         `/studySetting/${params.groupId}`,
       );
@@ -360,7 +369,12 @@ class StudyPage extends React.Component<PageProps, PageState> {
               paddingTop: '70px',
             }}
           >
-            {this.state.display.card.replace(/\n/g, '<br />')}
+            {this.state.display.card.split('\n').map((item) => (
+              <>
+                {item}
+                <br />
+              </>
+            ))}
           </div>
         </div>
       </div>
