@@ -3,8 +3,7 @@
 ## Overview
 
 This is a Card Study App.<br>
-You can use this app immediately, because the data is saved in the storage on the browser.
-入力したカードデータは、JSONで保存、反映が可能です。<br>
+You can use this app immediately, because the data is saved in the storage on the browser.<br>
 You can saved data that you inputed as JSON.<br>
 <br>
 https://juneorg2020.github.io/TypeScriptTest/ <br>
