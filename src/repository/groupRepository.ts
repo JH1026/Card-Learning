@@ -1,10 +1,15 @@
 import OperateLocalStorage from './operateLocalStorage';
 
+export type CardGroup = {
+  groupId: number,
+  groupName: string,
+};
+
 export default class GroupStorage extends OperateLocalStorage {
   static keyName = 'cardGroup' as string;
 
-  static getAllGroup() : any[] {
-    return this.getAllDataBySameKey(this.keyName);
+  static getAllGroup() : CardGroup[] {
+    return this.getAllDataBySameKey(this.keyName) as CardGroup[];
   }
 
   static searchGroupName(groupName: string) : boolean {

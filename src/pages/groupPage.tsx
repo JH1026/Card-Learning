@@ -1,102 +1,78 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
+import { useHistory, useLocation } from 'react-router-dom';
 import NormalButton from '../components/normalButton';
-import GroupStorage from '../repository/groupRepository';
+import GroupStorage, { CardGroup } from '../repository/groupRepository';
 
-type PageProps = {
-  history: any,
-  common: any,
-};
+const GroupPage = () => {
+  const history = useHistory();
+  const [cardGroups, setCardGroups] = useState<CardGroup[]>([]);
+  const [groupName, setGroupName] = useState<string>();
 
-type CardGroupObject = {
-  id: number,
-  groupName: string,
-};
+  useEffect(() => {
+    setCardGroups(GroupStorage.getAllGroup());
+  }, []);
 
-type PageState = {
-  cardGroups: CardGroupObject[],
-  groupName: string,
+  const addNewGroup = useCallback(() => {
+    if (!groupName) {
+      return;
+    }
 
-};
-
-class GroupPage extends React.Component<PageProps, PageState> {
-  constructor(props: PageProps) {
-    super(props);
-    this.state = {
-      cardGroups: [],
-      groupName: '',
-    };
-  }
-
-  componentDidMount() {
-    this.refreshData();
-  }
-
-  refreshData() {
-    this.setState({
-      cardGroups: GroupStorage.getAllGroup(),
-    });
-  }
-
-  addNewGroup() {
-    const { cardGroups, groupName } = this.state;
     const ret = GroupStorage.addGroup(groupName);
-    if (!ret.code) {
+    if (ret.message) {
       alert(ret.message);
       return;
     }
 
-    cardGroups.push({
-      id: ret.groupId as number,
-      groupName,
-    });
+    setCardGroups([
+      ...cardGroups,
+      {
+        groupId: ret.groupId as number,
+        groupName,
+      },
+    ]);
+  }, [groupName, setCardGroups]);
 
-    this.setState({
-      cardGroups: cardGroups.slice(),
-      groupName: '',
-    });
-  }
+  // redirectTo(link: string) {
+  //   this.props.history.push(link);
+  // }
 
-  redirectTo(link: string) {
-    this.props.history.push(link);
-  }
-
-  render() {
-    return (
-      <div className="content-width80">
-        <div style={{ marginTop: '125px' }} />
-        <div style={{ maxWidth: '750px', margin: 'auto' }}>
-          <h2>Select Card Group</h2>
-          {this.state.cardGroups.map((item: any) => (
-            <NormalButton
-              key={item.id}
-              addStyle={{ margin: '4px' }}
-              title={item.groupName}
-              onClick={() => this.redirectTo(`/menu/${item.id}`)}
-            />
-          ))}
-
-          <div style={{ marginTop: '80px' }} />
-          <TextField
-            InputLabelProps={
-              { style: { color: '#fff' } }
-            }
-            inputProps={{ style: { color: '#fff' } }}
-            style={{ width: '55%', maxWidth: '250px' }}
-            label="Input Group Name"
-            value={this.state.groupName}
-            onChange={(e) => { this.setState({ groupName: e.target.value }); }}
-          />
-          <br />
+  return (
+    <div className="content-width80">
+      <div style={{ marginTop: '125px' }} />
+      <div style={{ maxWidth: '750px', margin: 'auto' }}>
+        <h2>Select Card Group</h2>
+        {cardGroups.map((item: any) => (
           <NormalButton
-            addStyle={{ marginTop: '4px' }}
-            title="Create New Group"
-            onClick={() => this.addNewGroup()}
+            key={item.id}
+            addStyle={{ margin: '4px' }}
+            title={item.groupName}
+            onClick={() => {
+              history.push(`/menu/${item.id}`);
+            }}
           />
-        </div>
+        ))}
+
+        <div style={{ marginTop: '80px' }} />
+        <TextField
+          InputLabelProps={
+            { style: { color: '#fff' } }
+          }
+          inputProps={{ style: { color: '#fff' } }}
+          style={{ width: '55%', maxWidth: '250px' }}
+          label="Input Group Name"
+          value={groupName}
+          onChange={(e) => { setGroupName(e.target.value); }}
+        />
+        <br />
+        <NormalButton
+          addStyle={{ marginTop: '4px' }}
+          title="Create New Group"
+          onClick={addNewGroup}
+        />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default GroupPage;

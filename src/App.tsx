@@ -29,13 +29,13 @@ class App extends React.PureComponent<PageProps, PageState> {
           <Switch>
             <Route exact path="/" component={GroupPage} />
             <Route path="/group" component={GroupPage} />
-            <Route path="/menu/:groupId" component={MenuPage} />
+            {/* <Route path="/menu/:groupId" component={MenuPage} />
             <Route path="/input/:groupId" component={InputPage} />
             <Route path="/studySetting/:groupId" component={StudySettingPage} />
             <Route path="/study/:groupId" component={StudyPage} />
             <Route path="/edit/:groupId" component={EditPage} />
             <Route path="/save/" component={SavePage} />
-            <Route path="/load/" component={LoadPage} />
+            <Route path="/load/" component={LoadPage} /> */}
             <Route component={GroupPage} />
           </Switch>
           <div className="footer-area" />

@@ -6,7 +6,7 @@ export default class CardStorage extends OperateLocalStorage {
 
   static searchGroupId(groupId: number) : boolean {
     const allGroup = GroupStorage.getAllGroup();
-    const searchResult = allGroup.filter((item) => item.id === groupId);
+    const searchResult = allGroup.filter((item) => item.groupId === groupId);
     return searchResult.length === 1;
   }
 

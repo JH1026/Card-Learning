@@ -30,7 +30,7 @@ class SavePage extends React.Component<PageProps, PageState> {
     const allGroups = GroupStorage.getAllGroup();
     const saveAllData = [] as any[];
     allGroups.forEach((item) => {
-      const rawAllCards = CardStorage.getAllCard(item.id);
+      const rawAllCards = CardStorage.getAllCard(item.groupId);
 
       // fill delete fragmentation
       const allCards = [] as any[];
