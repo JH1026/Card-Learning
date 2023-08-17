@@ -5,5 +5,5 @@
 カードの裏表で暗記するアプリ。<br>
 カードデータはJSONで保存可能。<br>
 <br>
-https://jh1026.github.io/Card-Learning/ <br>
+https://jlmn1026.github.io/Card-Learning/ <br>
 ※データはブラウザのストレージ上に保存するので、ブラウザの設定からキャッシュをクリアするとデータが消えます。<br>
